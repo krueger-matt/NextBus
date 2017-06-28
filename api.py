@@ -85,6 +85,7 @@ def getAllVehicles():
 print "Here is a list of all vehicle ID's on route " + line + ":"
 print getAllVehicles()
 
+
 def getAllRoutes():
     
     root = ET.fromstring(response2)
@@ -97,4 +98,21 @@ def getAllRoutes():
         
     return allRoutes
 
+print "Here are all of the SF Muni routes:"
 print getAllRoutes()
+
+
+def getAllAgencies():
+    
+    root = ET.fromstring(response)
+    
+    allAgencies = []
+    
+    for agency in root.iter('agency'):
+        tag = agency.get('tag')
+        allAgencies.append(tag)
+        
+    return allAgencies
+
+print "Here are all of the Agencies using NextBus:"
+print getAllAgencies()
