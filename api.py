@@ -84,3 +84,17 @@ def getAllVehicles():
         
 print "Here is a list of all vehicle ID's on route " + line + ":"
 print getAllVehicles()
+
+def getAllRoutes():
+    
+    root = ET.fromstring(response2)
+    
+    allRoutes = []
+    
+    for route in root.iter('route'):
+        tag = route.get('tag')
+        allRoutes.append(tag)
+        
+    return allRoutes
+
+print getAllRoutes()
