@@ -24,9 +24,9 @@ minutes = []
 
 for prediction in root.iter('prediction'):
     if line == 'N':
-        iden = "train: " + prediction.get('vehicle')
+        iden = "train " + prediction.get('vehicle') + " in"
     else:
-        iden = "bus: " + prediction.get('vehicle')
+        iden = "bus " + prediction.get('vehicle')
     vehicles.append(iden)
     iden = prediction.get('minutes') + " minutes"
     minutes.append(iden)
@@ -36,5 +36,10 @@ vehMin.append(vehicles)
 vehMin.append(minutes)
 
 print "Here are upcoming departures for the " + line + " at " + station + ":"
-for x in range(len(vehicles)):
-    print zip(*vehMin)[x]
+
+cleanList =  map(list, zip(vehicles,minutes))
+
+for sublst in cleanList:
+    for item in sublst:
+        print item,
+    print  
